@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mi-servicio
+    env: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mi-db
+          property: connectionString
+databases:
+  - name: mi-db
+    plan: free
